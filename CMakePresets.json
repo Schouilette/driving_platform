@@ -16,7 +16,8 @@
             "inherits": "default",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
-            }
+            },
+            "displayName": "Debug"
         },
         {
             "name": "RelWithDebInfo",
@@ -38,6 +39,14 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "MinSizeRel"
             }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "Debug",
+            "description": "",
+            "displayName": "Debug",
+            "configurePreset": "Debug"
         }
     ]
 }

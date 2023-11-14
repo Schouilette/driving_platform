@@ -17,15 +17,17 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+
+#include "gpio.h"
 #include "cmsis_os.h"
 #include "i2c.h"
 #include "sdio.h"
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
+//#include "main.h"
 //#include "usb_device.h"
-#include "gpio.h"
+
 
 
 void SystemClock_Config(void);
@@ -73,6 +75,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+
 
     /* USER CODE BEGIN 3 */
   }

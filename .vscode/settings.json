@@ -2,6 +2,8 @@
     "files.associations": {
         "stm32f4xx_hal.h": "c",
         "freertos.h": "c",
-        "cmsis_os.h": "c"
+        "cmsis_os.h": "c",
+        "gpio.h": "c"
     }
+   
 }
