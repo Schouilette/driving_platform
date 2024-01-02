@@ -66,6 +66,7 @@ add_executable(${EXECUTABLE} ${PROJ_PATH}/app/main.c ${PROJ_PATH}/app/main.h)
 # Include paths
 add_subdirectory(${PROJ_PATH}/app)
 add_subdirectory(${PROJ_PATH}/lib)
+add_subdirectory(${PROJ_PATH}/bsp)
 
 
 # Project symbols

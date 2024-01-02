@@ -1,34 +1,23 @@
-/* USER CODE BEGIN Header */
 /**
   ******************************************************************************
   * @file           : main.c
   * @brief          : Main program body
   ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2023 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
+  * @author Schouilette
   ******************************************************************************
   */
-/* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 
 #include "gpio.h"
-#include "cmsis_os.h"
+#include "cmsis_os2.h"
 #include "i2c.h"
 #include "sdio.h"
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
-//#include "main.h"
-//#include "usb_device.h"
+#include "main.h"
 
-
+#include "HW_api.h"
 
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
@@ -51,18 +40,17 @@ int main(void)
   PeriphCommonClock_Config();
 
   /* Initialize all configured peripherals */
-  MX_GPIO_Init();
+  //MX_GPIO_Init();
+  //gInputs.Init();
+  HW.DINs->Init();
   MX_I2C1_Init();
-//  MX_SDIO_SD_Init();
   MX_SPI1_Init();
   MX_TIM2_Init();
   MX_TIM5_Init();
   MX_TIM8_Init();
   MX_USART1_UART_Init();
-  /* USER CODE BEGIN 2 */
 
-  /* USER CODE END 2 */
-
+  /*FreeRTOS configuration*/
   /* Init scheduler */
   osKernelInitialize();  /* Call init function for freertos objects (in freertos.c) */
   MX_FREERTOS_Init();
@@ -71,16 +59,12 @@ int main(void)
   osKernelStart();
   /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-
-
-    /* USER CODE BEGIN 3 */
   }
-  /* USER CODE END 3 */
 }
+
+
 
 /**
   * @brief System Clock Configuration
@@ -158,10 +142,6 @@ void PeriphCommonClock_Config(void)
     Error_Handler();
   }
 }
-
-/* USER CODE BEGIN 4 */
-
-/* USER CODE END 4 */
 
 /**
   * @brief  Period elapsed callback in non blocking mode

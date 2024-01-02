@@ -3,7 +3,10 @@
         "stm32f4xx_hal.h": "c",
         "freertos.h": "c",
         "cmsis_os.h": "c",
-        "gpio.h": "c"
+        "gpio.h": "c",
+        "stm32f4xx_ll_gpio.h": "c",
+        "inputs.h": "c",
+        "stm32f4xx_ll_system.h": "c"
     }
    
 }

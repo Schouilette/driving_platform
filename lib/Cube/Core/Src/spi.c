@@ -19,7 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "spi.h"
-
+#include "stm32f4xx_ll_gpio.h"
 /* USER CODE BEGIN 0 */
 
 /* USER CODE END 0 */

@@ -20,6 +20,8 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "gpio.h"
+#include "stm32f4xx_ll_gpio.h"
+#include "stm32f4xx_ll_bus.h"
 
 /* USER CODE BEGIN 0 */
 

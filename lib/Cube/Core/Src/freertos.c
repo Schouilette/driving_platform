@@ -123,7 +123,7 @@ void StartDefaultTask(void *argument)
   {
     LL_GPIO_TogglePin(GPIOB, LL_GPIO_PIN_15);
     #ifdef DEBUG_PRINT
-    HAL_UART_Transmit(&huart1,(uint8_t *)"Hello dupa \r\n",sizeof("Hello dupa \r\n"),100);
+    HAL_UART_Transmit(&huart1,(uint8_t *)"Hello world \r\n",sizeof("Hello world \r\n"),100);
     #endif
     osDelay(1000);
   }
