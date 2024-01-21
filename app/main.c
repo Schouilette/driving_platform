@@ -12,19 +12,19 @@
 #include "cmsis_os2.h"
 #include "i2c.h"
 #include "sdio.h"
-#include "spi.h"
+
 #include "tim.h"
 #include "usart.h"
 #include "main.h"
-
 #include "HW_api.h"
 
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 void MX_FREERTOS_Init(void);
 
-/**
-  * @brief  The application entry point.
+
+
+/** The application entry point.
   * @retval int
   */
 int main(void)
@@ -40,15 +40,13 @@ int main(void)
   PeriphCommonClock_Config();
 
   /* Initialize all configured peripherals */
-  //MX_GPIO_Init();
-  //gInputs.Init();
-  HW.DINs->Init();
-  MX_I2C1_Init();
-  MX_SPI1_Init();
+
+ Init_Hardware(&HW);
+  //MX_SPI1_Init();
   MX_TIM2_Init();
   MX_TIM5_Init();
   MX_TIM8_Init();
-  MX_USART1_UART_Init();
+  MX_USART1_UART_Init();   
 
   /*FreeRTOS configuration*/
   /* Init scheduler */
@@ -61,6 +59,7 @@ int main(void)
   /* Infinite loop */
   while (1)
   {
+    
   }
 }
 

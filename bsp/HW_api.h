@@ -12,14 +12,15 @@
 extern "C" {
 #endif
 
-#include "DINs.h"
+#include "Digital_IOs.h"
+#include "stm32f4xx_hal.h"
+typedef struct {
+    DigitalInputs_t *DINs;
+    DigitalOutputs_t *DOUTs;
+    int variable;
+}Hardware_t;
 
-typedef struct 
-{
-  DigitalInputs_t* DINs;
-  int variable;
-} Hardware_t;
-
+HAL_StatusTypeDef Init_Hardware(Hardware_t *HW);
 
 extern Hardware_t HW;
 #ifdef __cplusplus

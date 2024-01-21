@@ -24,6 +24,8 @@
 #include "cmsis_os2.h"
 #include "gpio.h"
 #include "usart.h"
+#include "HW_api.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -124,6 +126,7 @@ void StartDefaultTask(void *argument)
     LL_GPIO_TogglePin(GPIOB, LL_GPIO_PIN_15);
     #ifdef DEBUG_PRINT
     HAL_UART_Transmit(&huart1,(uint8_t *)"Hello world \r\n",sizeof("Hello world \r\n"),100);
+    
     #endif
     osDelay(1000);
   }

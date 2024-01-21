@@ -31,7 +31,7 @@ void MX_I2C1_Init(void)
 {
 
   /* USER CODE BEGIN I2C1_Init 0 */
-
+  HAL_I2C_MspInit(&hi2c1) ;
   /* USER CODE END I2C1_Init 0 */
 
   /* USER CODE BEGIN I2C1_Init 1 */
@@ -112,5 +112,14 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
 }
 
 /* USER CODE BEGIN 1 */
-
+// void check_i2c_devices(void) {
+//     for (uint8_t address = 1; address <= 127; address++) {
+//         HAL_StatusTypeDef status = HAL_I2C_IsDeviceReady(&hi2c1, address << 1, 1, HAL_MAX_DELAY);
+//         if (status == HAL_OK) {
+//             HAL_UART_Transmit(&huart1,(uint8_t *)"Device found at address ",sizeof("Device found at address "),100);
+//             HAL_UART_Transmit(&huart1,&address, sizeof(address),100);
+//             HAL_UART_Transmit(&huart1,(uint8_t *)"\r\n",sizeof("\r\n"),100);
+//         }
+//     }
+// }
 /* USER CODE END 1 */
