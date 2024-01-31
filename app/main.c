@@ -41,13 +41,14 @@ int main(void)
 
   /* Initialize all configured peripherals */
 
- Init_Hardware(&HW);
+   Init_Hardware(&HW);
   //MX_SPI1_Init();
   MX_TIM2_Init();
   MX_TIM5_Init();
   MX_TIM8_Init();
   MX_USART1_UART_Init();   
 
+ Set_LEd(3, 1);
   /*FreeRTOS configuration*/
   /* Init scheduler */
   osKernelInitialize();  /* Call init function for freertos objects (in freertos.c) */

@@ -45,7 +45,7 @@ void MCP23017_deinit(MCP23017* mcp){
 HAL_StatusTypeDef MCP23017_set_all_pins_dir(MCP23017* mcp, uint16_t dir){
 
     mcp->iodir = dir;
-    return HAL_I2C_Mem_Write(mcp->i2c, mcp->address, REGISTER_IODIRA, 2, (uint8_t*)&mcp->iodir, 2, 100);
+    return HAL_I2C_Mem_Write(mcp->i2c, mcp->address, REGISTER_IODIRA, 1, (uint8_t*)&mcp->iodir, 2, 100);
 }
 
 /**
@@ -108,7 +108,7 @@ HAL_StatusTypeDef MCP23017_set_pin(MCP23017* mcp, uint16_t pin, uint8_t value){
     }else{
         mcp->gpio_value |= (1<<pin);
     }
-    return HAL_I2C_Mem_Write(mcp->i2c, mcp->address, REGISTER_GPIOA, 2, (uint8_t*)&mcp->gpio_value, 2, 100);
+    return HAL_I2C_Mem_Write(mcp->i2c, mcp->address, REGISTER_GPIOA, 1, (uint8_t*)&mcp->gpio_value, 2, 100);
 }
 
 /**

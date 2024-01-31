@@ -21,9 +21,10 @@ typedef struct {
 }Hardware_t;
 
 HAL_StatusTypeDef Init_Hardware(Hardware_t *HW);
+HAL_StatusTypeDef Set_LEd(uint8_t pin, uint8_t state);
 
 extern Hardware_t HW;
 #ifdef __cplusplus
 }
 #endif
-#endif
+#endif 
