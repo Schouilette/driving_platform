@@ -1,29 +1,33 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-// Add your configuration constants and declarations here
-enum{
-    DIN1,
-    DIN2,
-    DIN3,
-    DIN4,
-    DIN5,
-    DIN6,
-}
+// Descriotion of the IOs
+#define IO_MODE_OUTPUT 1
+#define IO_MODE_INPUT 0
+#define IO_HIGH 1
+#define IO_LOW 0
 
-typedef struct{
-    uint8_t value;
-    uint8_t pin;
-}DIN;
+typedef enum {
+    MCP23017_1,
+    GPIO
+} IO_type_t;
 
-DIN din[6] = {
-    {0, DIN1},
-    {0, DIN2},
-    {0, DIN3},
-    {0, DIN4},
-    {0, DIN5},
-    {0, DIN6},
-};
+typedef enum {
+    Hb_Led = 1,
+    Pb_1 = 2, 
+    Pb_2 = 3,
+    Sw_1 = 4,
+    Sw_2 = 5,
+    Sw_3 = 6,
+    Sw_4 = 7,
+    Sw_5 = 8,
+    Led_D3 = 9,
+    Led_D4 = 10,
+    Led_D5 = 11,
+    Led_D6 = 12,
+    Led_D7 = 13,
+    Led_D8 = 14,
+} IO_descriptor_t;
 
 
 #endif // CONFIG_H

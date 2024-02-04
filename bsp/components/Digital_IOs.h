@@ -7,25 +7,12 @@ extern "C" {
 
 // Include any necessary libraries or headers here
 #include "MCP23017.h"
-// Define any constants or macros here
+extern MCP23017 MCP_expander_1;
 
-// Declare any function prototypes here
-
-// Define any data structures or classes here
-typedef struct 
-{
-  int (*Init)(void);
-  int (*Read)(MCP23017* mcp);
-} DigitalInputs_t;
-
-typedef struct 
-{
-  int (*Init)(void);
-} DigitalOutputs_t;
-
-// Add your code here
-extern DigitalInputs_t DINs;
-extern DigitalOutputs_t DOUTs;
+HAL_StatusTypeDef DINS_init(void);
+HAL_StatusTypeDef __Set_output(uint8_t name, uint8_t state);
+HAL_StatusTypeDef __Toogle_output(uint8_t name);
+GPIO_PinState __Get_io_val(uint8_t name);
 
 #ifdef __cplusplus
 }

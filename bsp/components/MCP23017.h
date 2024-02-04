@@ -8,6 +8,9 @@
 // Ports
 #define MCP23017_PORTA			0x00
 #define MCP23017_PORTB			0x01
+
+#define PORTA_OFFSET            0x00
+#define PORTB_OFFSET            0x08
 // I/O Direction
 // Default state: MCP23017_IODIR_ALL_INPUT
 #define MCP23017_IODIR_ALL_OUTPUT	0x00

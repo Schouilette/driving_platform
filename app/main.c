@@ -36,19 +36,17 @@ int main(void)
   /* Configure the system clock */
   SystemClock_Config();
 
-/* Configure the peripherals common clocks */
+  /* Configure the peripherals common clocks */
   PeriphCommonClock_Config();
 
   /* Initialize all configured peripherals */
-
-   Init_Hardware(&HW);
-  //MX_SPI1_Init();
+  Init_Hardware(&HW);
+ 
   MX_TIM2_Init();
   MX_TIM5_Init();
   MX_TIM8_Init();
   MX_USART1_UART_Init();   
 
- Set_LEd(3, 1);
   /*FreeRTOS configuration*/
   /* Init scheduler */
   osKernelInitialize();  /* Call init function for freertos objects (in freertos.c) */

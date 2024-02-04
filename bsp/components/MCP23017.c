@@ -139,7 +139,7 @@ uint8_t MCP23017_get_pin_value(MCP23017* mcp, uint16_t pin){
     if(pin > 15){
         return 0;
     }
-    HAL_I2C_Mem_Read(mcp->i2c, mcp->address, REGISTER_GPIOA, 2, (uint8_t*)&mcp->gpio_value, 2, 100);
+    HAL_I2C_Mem_Read(mcp->i2c, mcp->address, REGISTER_GPIOA, 1, (uint8_t*)&mcp->gpio_value, 2, 100);
     return (mcp->gpio_value>>pin)&0x01;
 }
 

@@ -123,9 +123,13 @@ void StartDefaultTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-
-    LL_GPIO_TogglePin(GPIOB, LL_GPIO_PIN_15);
+    static uint8_t state = 0;
+    //LL_GPIO_TogglePin(GPIOB, LL_GPIO_PIN_15);
+    HW.Toogle_output(Hb_Led);
     HAL_UART_Transmit(&huart1,(uint8_t *)"Hello world \r\n",sizeof("Hello world \r\n"),100);
+
+    HW.Toogle_output(Led_D3);
+    state = !state;
     osDelay(1000);
   }
   /* USER CODE END StartDefaultTask */

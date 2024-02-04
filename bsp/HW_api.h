@@ -12,16 +12,20 @@
 extern "C" {
 #endif
 
-#include "Digital_IOs.h"
+//#include "Digital_IOs.h"
 #include "stm32f4xx_hal.h"
+#include "config.h"
 typedef struct {
-    DigitalInputs_t *DINs;
-    DigitalOutputs_t *DOUTs;
+    HAL_StatusTypeDef (*Set_output)(uint8_t name, uint8_t state);
+    HAL_StatusTypeDef (*Toogle_output)(uint8_t name);
+    GPIO_PinState (*Get_IO_value)(uint8_t name);
     int variable;
 }Hardware_t;
 
+
+
 HAL_StatusTypeDef Init_Hardware(Hardware_t *HW);
-HAL_StatusTypeDef Set_LEd(uint8_t pin, uint8_t state);
+
 
 extern Hardware_t HW;
 #ifdef __cplusplus
