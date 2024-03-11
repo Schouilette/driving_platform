@@ -8,39 +8,29 @@
  */
 /* Includes ------------------------------------------------------------------*/
 
-// #include "gpio.h"
-
-#include <cmsis_os2.h>
-#include "tim.h"
-#include "usart.h"
 #include <main.h>
-#include <HW_api.h>
+#include "HW_api.h"
+#include "config.h"
+#include "rtos.h"
 
+void HelloWorldTask(void *argument);
+xTaskHandle HelloWorldTaskHandle;
 
-
-/** The application entry point.
+/** The application entry point
  * @retval int
  */
 int main(void)
 {
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
-
-
   /* Initialize all configured peripherals */
   Init_Hardware(&HW);
 
-  MX_TIM2_Init();
-  MX_TIM5_Init();
-  MX_TIM8_Init();
-  MX_USART1_UART_Init();
+  /* Create the thread(s) */
+  xTaskCreate(HelloWorldTask, "Hello", 128*4, NULL, 24, &HelloWorldTaskHandle);
 
-  /*FreeRTOS configuration*/
-  /* Init scheduler */
-  osKernelInitialize(); /* Call init function for freertos objects (in freertos.c) */
-  
   /* Start scheduler */
-  osKernelStart();
+  vTaskStartScheduler(); /* Call start function for freertos objects (in freertos.c) */
   /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   while (1)
@@ -48,4 +38,13 @@ int main(void)
   }
 }
 
-
+void HelloWorldTask(void *argument)
+{
+  for(;;)
+  {
+    HW.Toogle_output(Hb_Led);
+    vTaskDelay(100);
+    HW.Toogle_output(Led_D4);
+  }
+  vTaskDelete(NULL);
+}

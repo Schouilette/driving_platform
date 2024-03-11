@@ -10,7 +10,13 @@
         "stddef.h": "c",
         "stdint.h": "c",
         "i2c.h": "c",
-        "cmsis_gcc.h": "c"
+        "cmsis_gcc.h": "c",
+        "cmsis_os2.h": "c",
+        "freertosconfig.h": "c",
+        "freertos_os2.h": "c",
+        "freertos_mpool.h": "c",
+        "main.h": "c",
+        "config.h": "c"
     }
    
 }

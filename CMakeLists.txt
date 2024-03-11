@@ -16,7 +16,6 @@ project(robot-platform)
 #
 set(CPU_PARAMETERS
     -mthumb
-
     # This needs attention to properly set for used MCU
     -mcpu=cortex-m4
     -mfpu=fpv4-sp-d16
@@ -27,28 +26,6 @@ set(CPU_PARAMETERS
 set(linker_script_SRC               ${PROJ_PATH}/lib/Cube/STM32F446RETx_FLASH.ld)
 set(EXECUTABLE                      ${CMAKE_PROJECT_NAME}.elf)
 
-
-# List of source files to compile
-# Include directories
-
-#MACRO(HEADER_DIRECTORIES return_list)
- #   FILE(GLOB_RECURSE new_list *.h)
-  #  SET(dir_list "")
-   # FOREACH(file_path ${new_list})
-    #    GET_FILENAME_COMPONENT(dir_path ${file_path} PATH)
-     #   SET(dir_list ${dir_list} ${dir_path})
-    #ENDFOREACH()
-    #LIST(REMOVE_DUPLICATES dir_list)
-    #SET(${return_list} ${dir_list})
-#ENDMACRO()
-
-#HEADER_DIRECTORIES(header_dir_list)
-
-#list(LENGTH header_dir_list header_dir_list_count)
-#message(STATUS "[INFO] Found ${header_dir_list_count} header directories.")
-#target_include_directories(${EXECUTABLE} PRIVATE 
-#${header_dir_list})
-# ${include_path_DIRS})
 
     
 # Symbols definition
@@ -86,17 +63,18 @@ set(CPPCHECK_CONFIG
   "--force" 
   "--inline-suppr"
   "--template='{file}:{line}: warning: {id} ({severity}): {message}'"
+  "--suppress='*:/lib/*'"
   "--output-file=/home/hubert/projects/driving_platform/build/cppcheck.txt"
 
 )
 
-#if(CMAKE_BUILD_TYPE MATCHES "static")
+if(CMAKE_BUILD_TYPE MATCHES "static")
     find_program(CMAKE_C_CPPCHECK NAMES cppcheck)
     if (CMAKE_C_CPPCHECK)
         message(STATUS "cppcheck                   ${cppcheck}")
         list(APPEND CMAKE_C_CPPCHECK ${CPPCHECK_CONFIG})
     endif()
-#endif()
+endif()
 
 
 # Compiler options

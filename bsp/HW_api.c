@@ -4,26 +4,34 @@
 #include "spi.h"
 #include "i2c.h"
 #include "Digital_IOs.h"
+#include "tim.h"
+#include "usart.h"
 
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 void MX_FREERTOS_Init(void);
 
+HAL_StatusTypeDef Init_Hardware(Hardware_t *HW)
+{
+  if (HW != NULL)
+  {
+    // CubeMX generated code
+    SystemClock_Config();
+    PeriphCommonClock_Config();
+    MX_I2C1_Init();
+    MX_SPI1_Init();
+    MX_TIM2_Init();
+    MX_TIM5_Init();
+    MX_TIM8_Init();
+    MX_USART1_UART_Init();
 
-HAL_StatusTypeDef Init_Hardware(Hardware_t *HW){
-    if (HW != NULL){
+    //MX_FREERTOS_Init();
 
-        SystemClock_Config();
-        PeriphCommonClock_Config();
-        MX_FREERTOS_Init();
-        MX_I2C1_Init();
-        MX_SPI1_Init();
-       
-        DINS_init();
-       
-        return HAL_OK;
-    }
-    return HAL_ERROR;
+    DINS_init();
+
+    return HAL_OK;
+  }
+  return HAL_ERROR;
 }
 
 /**
@@ -160,10 +168,4 @@ Hardware_t HW = {
     .variable = 10,
     .Set_output = &__Set_output,
     .Toogle_output = &__Toogle_output,
-    .Get_IO_value = &__Get_io_val
-};
-
-
-
-
-
+    .Get_IO_value = &__Get_io_val};

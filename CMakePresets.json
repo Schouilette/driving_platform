@@ -54,6 +54,12 @@
             "description": "",
             "displayName": "Debug",
             "configurePreset": "Debug"
+        },
+        {
+            "name": "Debug with static analysis",
+            "description": "",
+            "displayName": "Debug with static analysis",
+            "configurePreset": "Debug with static analysis"
         }
     ]
 }

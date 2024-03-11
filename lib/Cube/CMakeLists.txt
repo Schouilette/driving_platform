@@ -1,6 +1,6 @@
 set(sources_SRCS
     # Put here your source files, one in each line, relative to CMakeLists.txt file location
-    ${PROJ_PATH}/lib/Cube/Core/Src/freertos.c
+    #${PROJ_PATH}/lib/Cube/Core/Src/freertos.c
     ${PROJ_PATH}/lib/Cube/Core/Src/gpio.c
     ${PROJ_PATH}/lib/Cube/Core/Src/i2c.c
     ${PROJ_PATH}/lib/Cube/Core/Src/sdio.c
@@ -50,7 +50,7 @@ set(sources_SRCS
     ${PROJ_PATH}/lib/Cube/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c
     ${PROJ_PATH}/lib/Cube/Middlewares/Third_Party/FreeRTOS/Source/queue.c
     ${PROJ_PATH}/lib/Cube/Middlewares/Third_Party/FreeRTOS/Source/list.c
-    ${PROJ_PATH}/lib/Cube/Middlewares/Third_Party/FreeRTOS/Source/croutine.c
+   # ${PROJ_PATH}/lib/Cube/Middlewares/Third_Party/FreeRTOS/Source/croutine.c
     ${PROJ_PATH}/lib/Cube/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c
     ${PROJ_PATH}/lib/Cube/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c
 
