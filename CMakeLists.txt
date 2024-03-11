@@ -4,6 +4,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 enable_language(C ASM)
 set(PROJ_PATH                       ${CMAKE_CURRENT_SOURCE_DIR})
 message("Build type: "              ${CMAKE_BUILD_TYPE})
@@ -73,9 +74,29 @@ add_subdirectory(${PROJ_PATH}/bsp)
 # Project symbols
 target_compile_definitions(${EXECUTABLE} PRIVATE ${symbols_SYMB})
 
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+if(CMAKE_BUILD_TYPE MATCHES "Debug")
     add_compile_definitions(DEBUG_PRINT)
 endif()
+
+
+set(CPPCHECK_CONFIG
+  "-D__GNUC__"
+  "--enable=all"
+  "--inconclusive"
+  "--force" 
+  "--inline-suppr"
+  "--template='{file}:{line}: warning: {id} ({severity}): {message}'"
+  "--output-file=/home/hubert/projects/driving_platform/build/cppcheck.txt"
+
+)
+
+#if(CMAKE_BUILD_TYPE MATCHES "static")
+    find_program(CMAKE_C_CPPCHECK NAMES cppcheck)
+    if (CMAKE_C_CPPCHECK)
+        message(STATUS "cppcheck                   ${cppcheck}")
+        list(APPEND CMAKE_C_CPPCHECK ${CPPCHECK_CONFIG})
+    endif()
+#endif()
 
 
 # Compiler options
@@ -104,6 +125,7 @@ target_link_options(${EXECUTABLE} PRIVATE
     -Wl,--end-group
     -Wl,--print-memory-usage
 )
+
 
 # Execute post-build to print size
 add_custom_command(TARGET ${EXECUTABLE} POST_BUILD

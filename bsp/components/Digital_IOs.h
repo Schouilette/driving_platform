@@ -2,11 +2,13 @@
 #define DIGITAL_IOS_H
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 // Include any necessary libraries or headers here
 #include "MCP23017.h"
+
 extern MCP23017 MCP_expander_1;
 
 HAL_StatusTypeDef DINS_init(void);

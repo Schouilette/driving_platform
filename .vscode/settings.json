@@ -9,7 +9,8 @@
         "stm32f4xx_ll_system.h": "c",
         "stddef.h": "c",
         "stdint.h": "c",
-        "i2c.h": "c"
+        "i2c.h": "c",
+        "cmsis_gcc.h": "c"
     }
    
 }

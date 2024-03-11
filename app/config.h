@@ -13,20 +13,20 @@ typedef enum {
 } IO_type_t;
 
 typedef enum {
-    Hb_Led = 1,
-    Pb_1 = 2, 
-    Pb_2 = 3,
-    Sw_1 = 4,
-    Sw_2 = 5,
-    Sw_3 = 6,
-    Sw_4 = 7,
-    Sw_5 = 8,
-    Led_D3 = 9,
-    Led_D4 = 10,
-    Led_D5 = 11,
-    Led_D6 = 12,
-    Led_D7 = 13,
-    Led_D8 = 14,
+    Hb_Led = 1,  // output
+    Pb_1 = 2,    // input
+    Pb_2 = 3,    // input
+    Sw_1 = 4,    // input
+    Sw_2 = 5,    // input
+    Sw_3 = 6,    // input
+    Sw_4 = 7,    // input
+    Sw_5 = 8,    // input
+    Led_D3 = 9,  // output
+    Led_D4 = 10, // output
+    Led_D5 = 11, // output
+    Led_D6 = 12, // output
+    Led_D7 = 13, // output
+    Led_D8 = 14, // output
 } IO_descriptor_t;
 
 
