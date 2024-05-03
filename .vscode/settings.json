@@ -16,7 +16,10 @@
         "freertos_os2.h": "c",
         "freertos_mpool.h": "c",
         "main.h": "c",
-        "config.h": "c"
+        "config.h": "c",
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "assert.h": "c"
     }
    
 }

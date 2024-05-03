@@ -63,5 +63,23 @@
             },
             "problemMatcher": []
         },
+        {
+            "type": "shell",
+            "label": "Static analysis",
+            "command": "cppcheck",
+            "args": [
+                "-D__GNUC__",
+                "--project=build/Debug/compile_commands.json",
+                "--enable=all",
+                "--inconclusive",
+                "--force",
+                "--inline-suppr",
+                "--output-file=cppcheck.txt"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
     ]
 }

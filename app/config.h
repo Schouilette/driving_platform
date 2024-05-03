@@ -29,5 +29,4 @@ typedef enum {
     Led_D8 = 14, // output
 } IO_descriptor_t;
 
-
 #endif // CONFIG_H

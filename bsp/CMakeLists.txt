@@ -5,3 +5,5 @@ target_sources(${EXECUTABLE} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/rtos.c)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/components)
 target_include_directories(${EXECUTABLE} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/components)
+target_include_directories(${EXECUTABLE} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/components/gpios)
+target_include_directories(${EXECUTABLE} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/components/motor)

@@ -12,6 +12,7 @@
 #include "HW_api.h"
 #include "config.h"
 #include "rtos.h"
+#include "usart.h"
 
 void HelloWorldTask(void *argument);
 xTaskHandle HelloWorldTaskHandle;
@@ -45,6 +46,7 @@ void HelloWorldTask(void *argument)
     HW.Toogle_output(Hb_Led);
     vTaskDelay(100);
     HW.Toogle_output(Led_D4);
+    HAL_UART_Transmit(&huart1,(uint8_t *)"Hello world \r\n",sizeof("Hello world \r\n"),100);
   }
   vTaskDelete(NULL);
 }

@@ -41,10 +41,10 @@
             }
         },
         {
-            "name": "Debug with static analysis",
+            "name": "DebugWithStaticAnalysis",
             "inherits": "default",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "DebugStaticAnalysis"
             }
         }
     ],
@@ -56,10 +56,10 @@
             "configurePreset": "Debug"
         },
         {
-            "name": "Debug with static analysis",
+            "name": "DebugWithStaticAnalysis",
             "description": "",
             "displayName": "Debug with static analysis",
-            "configurePreset": "Debug with static analysis"
+            "configurePreset": "DebugWithStaticAnalysis"
         }
     ]
 }

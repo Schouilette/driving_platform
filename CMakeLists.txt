@@ -56,27 +56,6 @@ if(CMAKE_BUILD_TYPE MATCHES "Debug")
 endif()
 
 
-set(CPPCHECK_CONFIG
-  "-D__GNUC__"
-  "--enable=all"
-  "--inconclusive"
-  "--force" 
-  "--inline-suppr"
-  "--template='{file}:{line}: warning: {id} ({severity}): {message}'"
-  "--suppress='*:/lib/*'"
-  "--output-file=/home/hubert/projects/driving_platform/build/cppcheck.txt"
-
-)
-
-if(CMAKE_BUILD_TYPE MATCHES "static")
-    find_program(CMAKE_C_CPPCHECK NAMES cppcheck)
-    if (CMAKE_C_CPPCHECK)
-        message(STATUS "cppcheck                   ${cppcheck}")
-        list(APPEND CMAKE_C_CPPCHECK ${CPPCHECK_CONFIG})
-    endif()
-endif()
-
-
 # Compiler options
 target_compile_options(${EXECUTABLE} PRIVATE
     ${CPU_PARAMETERS}
@@ -103,6 +82,28 @@ target_link_options(${EXECUTABLE} PRIVATE
     -Wl,--end-group
     -Wl,--print-memory-usage
 )
+
+set(CPPCHECK_CONFIG
+  "-D__GNUC__ "
+  "-D__VFP_FP__ "
+  "--enable=all"
+  "--inconclusive" 
+  "--inline-suppr"
+  "--std=c11"
+  "--output-file=cppcheck.txt"
+)
+
+
+
+if(CMAKE_BUILD_TYPE MATCHES "Static")
+    find_program(CMAKE_C_CPPCHECK NAMES cppcheck)
+    if (CMAKE_C_CPPCHECK)
+        message(STATUS "cppcheck                 ${cppcheck}")
+        list(APPEND CMAKE_C_CPPCHECK ${CPPCHECK_CONFIG})
+        message(STATUS "CMAKE_C_CPPCHECK: ${CMAKE_C_CPPCHECK}")
+    endif()
+endif()
+
 
 
 # Execute post-build to print size
